@@ -1,0 +1,487 @@
+@import 'global';
+@import 'variables';
+@import 'mixins';
+
+.header {
+
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/desktop/image-header.jpg');
+    background-position: center;
+    background-size: contain;
+    background-repeat: repeat-x;
+
+    @include respond(mobile) {
+        background-image: url('../images/mobile/image-header.jpg');
+        height: 70vh;
+        background-position: bottom;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    //NAVBAR
+    & .nav {
+        padding: 1rem 0;
+        //background-color: $dark-grayish-blue-light;
+        
+        & .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            width: 95%;
+            margin: 0 auto;
+        }
+
+        & .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        &-menu {
+            display: flex;
+            list-style: none;
+
+            @include respond(mobile) {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                background-color: $white;
+                padding-left: 0;
+            }
+
+            & li {
+
+                &:not(:last-child) {
+                    margin-right: 3rem;
+
+                    @include respond(mobile) {
+                        margin-right: 0;
+                    }
+                }
+
+                &:last-child a {
+                    padding: 10px 28px;
+                    background-color: $white;
+                    color: #000;
+                    font-family: $fraunces;
+                    border-radius: 24px;
+                    transition: all .3s;
+
+                    @include respond(mobile) {
+                        background-color: orange;
+                        //padding: 0;
+                        color: $dark-blue;
+                        //border-radius: none;
+
+                        //margin-left: -2.5rem;
+                    }
+
+                    &:hover {
+                        background-color: lightblue;
+                        color: $white;
+                    }
+                }
+
+                @include respond(mobile) {
+                    display: flex;
+                    justify-content: center;
+                    margin: 1rem 0;
+                }
+            }
+
+            & li > a {
+                text-decoration: none;
+                color: $white;
+
+                @include respond(mobile) {
+                    color: $dark-blue;
+                }
+            }
+
+            &.show {
+                display: flex;
+            }
+        }
+
+        .ham-menu {
+            background-color: transparent;
+            border: 0;
+            display: none;
+            color: $white;
+            cursor: pointer;
+            font-size: 24px;
+
+            &:focus {
+                outline: none;
+            }
+
+            @include respond(mobile) {
+                display: block;
+            }
+        }
+    }
+
+    //HEADER SHOWCASE
+    & .showcase {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        @include respond(mobile) {
+            width: 90%;
+            margin: 0 auto;
+        }
+        
+        & .text {
+            font-family: $fraunces;
+            font-size: 3rem;
+            font-weight: 900;
+            letter-spacing: .5rem;
+            color: $white;
+            text-transform: uppercase;
+            margin: 4.5rem 0;
+
+            @include respond(mobile) {
+                font-size: 2rem;
+                text-align: center;
+                margin: 4rem 0;
+            }
+        }
+
+        & .arrow-down img {
+            height: 5rem;
+        }
+    }
+}
+
+//FEATURES SECTION
+
+.features {
+
+    & .flex-container {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+        @include respond(mobile) {
+            flex-direction: column;
+        }
+    }
+
+    & .features-item {
+        width: 50%;
+
+        @include respond(mobile) {
+            width: 100%;
+        }
+    }
+
+    & .normal {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        padding: 0 7rem;
+        color: $dark-desaturated-blue;
+
+        @include respond(mobile) {
+            padding: 2.5rem;
+            text-align: center;
+        }
+
+        & .title {
+            font-size: 3rem;
+            font-family: $fraunces;
+            font-weight: 900;
+            margin-bottom: 2rem;
+
+            @include respond(mobile) {
+                font-size: 2rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+
+        & .text {
+            color: $dark-grayish-blue;
+            margin-bottom: 2rem;
+        }
+
+        & a {
+            text-decoration: none;
+            font-family: $fraunces;
+            color: $dark-desaturated-blue;
+            text-transform: uppercase;
+        }
+
+        & #yellow {
+            border-bottom: 2px solid $yellow;
+
+            &:hover {
+                border-bottom: 3px solid $yellow;
+            }
+        }
+
+        & #soft-red {
+            border-bottom: 2px solid $soft-red;
+
+            &:hover {
+                border-bottom: 3px solid $soft-red;
+            }
+        }
+    }
+
+    & .only-image_one {
+        
+        @include respond(mobile) {
+            background-image: url('../images/mobile/image-transform.jpg');
+            order: 1;
+        }
+    }
+
+    & .second {
+        @include respond(mobile) {
+            order: 2;
+        }
+    }
+
+    & .fourth {
+        @include respond(mobile) {
+            order: 4;
+        }
+    }
+
+    & .fifth {
+        @include respond(mobile) {
+            order: 5;
+        }
+    }
+
+    & .sixth {
+        @include respond(mobile) {
+            order: 6;
+        }
+    }
+
+    & .only-image_two {
+
+        @include respond(mobile) {
+            background-image: url('../images/mobile/image-stand-out.jpg');
+            order: 3;
+        }
+    }
+
+    & .only-image_one, .only-image_two {
+        //background-position: center;
+        overflow: hidden;
+    }
+
+    & .design {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 90vh;
+        color: $dark-cyan;
+        background-image: url('../images/desktop/image-graphic-design.jpg');
+        
+        @include respond(mobile) {
+            height: 70vh;
+            background-image: url('../images/mobile/image-graphic-design.jpg');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        & .title {
+            font-size: 2rem;
+            font-family: $fraunces;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        & .text {
+            text-align: center;
+            margin: 0 8.7rem 3rem;
+
+            @include respond(mobile) {
+                margin: 0 1rem 2.5rem;
+            }
+        }
+    }
+
+    & .photo {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        align-items: center;
+        height: 90vh;
+        color: $dark-blue;
+        background-image: url('../images/desktop/image-photography.jpg');
+
+        @include respond(mobile) {
+            height: 70vh;
+            background-image: url('../images/mobile/image-photography.jpg');
+            background-position: top;
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+
+        & .title {
+            font-size: 2rem;
+            font-family: $fraunces;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+
+        & .text {
+            text-align: center;
+            margin: 0 8.7rem 3rem;
+
+            @include respond(mobile) {
+                margin: 0 1rem 2.5rem;
+            }
+        }
+    }
+}
+
+//TESTIMONIALS SECTION
+
+.testimonials {
+    padding: 7rem;
+
+    @include respond(mobile) {
+        padding: 2rem;
+    }
+
+    & .title {
+        text-align: center;
+        font-family: $fraunces;
+        font-size: 1.2rem;
+        letter-spacing: .2rem;
+        color: $dark-grayish-blue-light;
+        margin-bottom: 4rem;
+        text-transform: uppercase;
+
+        @include respond(mobile) {
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+    }
+
+    &-items {
+        display: flex;
+
+        @include respond(mobile) {
+            flex-direction: column;
+        }
+
+        &_field {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+
+            & > div {
+                margin: 1rem 0;
+            }
+
+            & .photo img {
+                height: 5rem;
+                border-radius: 50%;
+            }
+
+            & .text {
+                color: $dark-grayish-blue;
+            }
+
+            & .identity {
+                & .name {
+                    font-family: $fraunces;
+                    color: $dark-desaturated-blue;
+                }
+
+                & .role {
+                    color: $dark-grayish-blue-light;
+
+                    @include respond(mobile) {
+                        font-size: .8rem;
+                    }
+                }
+            }
+        }
+    }
+}
+
+//GALLERY SECTION
+
+.gallery {
+    display: flex;
+
+    @include respond(mobile) {
+        flex-wrap: wrap;
+    }
+
+    &-img {
+        width: 25%;
+        height: auto;
+
+        @include respond(mobile) {
+            width: 50%;
+        }
+    }
+}
+
+//FOOTER
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $dark-cyan-footer;
+
+    &-logo {
+        margin-top: 3rem;
+    }
+
+    & ul {
+        display: flex;
+        list-style: none;
+        padding: 0;
+
+        & li {
+            &:not(:last-child) {
+                margin-right: 3rem;
+            }
+
+            & a {
+                color: $dark-cyan;
+                text-decoration: none;
+                transition: all .3s;
+
+                &:hover {
+                    color: $white
+                }
+            }
+        }
+    }
+
+    &-social_icons {
+        display: flex;
+        margin: 3rem 0;
+
+        & a {
+            color: $dark-cyan;
+            transition: all .3s;
+
+            &:not(:last-child) {
+                margin-right: 2rem;
+            }
+
+            &:hover {
+                color: $white;
+            }
+        }
+    }
+}
